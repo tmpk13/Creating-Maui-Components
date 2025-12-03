@@ -16,14 +16,31 @@ Project wide styles are defined in `App.xaml`
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
  ...
 ```
+
+# Colors
 
 In `Colors.xaml` the color is defined in the project namespace `xmlns:local="clr-namespace:<APPNAME>"`
 ``` XML
 <ResourceDictionary>
     <Color x:Key="Basic-Blue">#0000FF</Color>
 ```
+
+# Styles
+
+In `Colors.xaml` the color is defined in the project namespace `xmlns:local="clr-namespace:<APPNAME>"`
+``` XML
+<ResourceDictionary>
+    <Style x:Key="newLabelStyle" TargetType="Label">
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="FontSize" Value="18" />
+    </Style>
+
+```
+
 
 Which are then accessable in the entire project
 
@@ -33,6 +50,12 @@ Which are then accessable in the entire project
     BackgroundColor="{StaticResource Basic-Blue}"
     FontColor="{StaticResource Basic-Blue}"
     Stroke="{StaticResource Basic-Blue}"
+    ... >
+```
+
+```
+<Label ...
+    Style="{StaticResource newLabelStyle}"
     ... >
 ```
 
