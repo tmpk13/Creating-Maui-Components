@@ -30,7 +30,7 @@ In `Colors.xaml` the color is defined in the project namespace `xmlns:local="clr
 
 ### Styles
 
-In `Colors.xaml` the color is defined in the project namespace `xmlns:local="clr-namespace:<APPNAME>"`
+In `Styles.xaml` the style is defined in the project namespace `xmlns:local="clr-namespace:<APPNAME>"`
 ``` XML
 <ResourceDictionary>
     <Style x:Key="newLabelStyle" TargetType="Label">
