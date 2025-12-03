@@ -45,13 +45,13 @@ If you have a .xaml view component you dont need to link the .xaml.cs attached
 
 #### XAML
 
-For a XAML view located in `<PROJECT-DIR>/Components/NewComponents/NewComponent.xaml`
+For a XAML view located at `<PROJECT-DIR>/Components/<NewComponents>/<NewComponent>.xaml`
 
 ``` XML
 <Project ...
  ...
     <ItemGroup>
-        <MauiXaml Update="Resources\Components\NewComponents\NewComponent.xaml">
+        <MauiXaml Update="Resources\Components\<NewComponents>\<NewComponent>.xaml">
             <SubType>Designer</SubType>
         </MauiXaml>
  ...
@@ -59,13 +59,13 @@ For a XAML view located in `<PROJECT-DIR>/Components/NewComponents/NewComponent.
 
 #### C#
 
-For a C# view located in `<PROJECT-DIR>/Components/NewComponents/NewComponent.cs`
+For a C# view located at `<PROJECT-DIR>/Components/<NewComponents>/<NewComponent>.cs`
 
 ``` XML
 <Project ...
  ...
     <ItemGroup>
-        <MauiXaml Update="Resources\Components\NewComponents\NewComponent.cs">
+        <MauiXaml Update="Resources\Components\<NewComponents>\<NewComponent>.cs">
             <SubType>Designer</SubType>
         </MauiXaml>
  ...
