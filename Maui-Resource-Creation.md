@@ -28,12 +28,12 @@ In `Colors.xaml` the color is defined in the project namespace `xmlns:local="clr
 Which are then accessable in the entire project
 
 ``` XML
-< ...   Color="{StaticResource Basic-Blue}"
-        BackgroundColor="{StaticResource Basic-Blue}"
-        FontColor="{StaticResource Basic-Blue}"
-        Stroke="{StaticResource Basic-Blue}"
-...
-
+<TAGNAME ...
+    Color="{StaticResource Basic-Blue}"
+    BackgroundColor="{StaticResource Basic-Blue}"
+    FontColor="{StaticResource Basic-Blue}"
+    Stroke="{StaticResource Basic-Blue}"
+    ... >
 ```
 
 ## Making a component
@@ -70,9 +70,9 @@ namespace <APPNAME>.Resources.Components.<NewComponents>;
 public class <NewComponent> : ContentView <-- This is the type to derive from
 {
     public static readonly BindableProperty <NewPropertyName> =
-        BindableProperty.Create(nameof(<NewProperty>), typeof(<NewPropertyType>), typeof(<NewComponent>));
+        BindableProperty.Create(nameof(<NewProperty>), typeof(<NewPropertyType>), typeof(<NewComponent>), defaultValue: <DefaultValue>);
 
-   public string <NewProperty>
+   public <NewPropertyType> <NewProperty>
    {
        get => (<NewPropertyType>)GetValue(<NewPropertyName>);
        set => SetValue(<NewPropertyName>, value);
@@ -81,8 +81,6 @@ public class <NewComponent> : ContentView <-- This is the type to derive from
 
     public <NewComponent>()
     {
-        Need to fix nullability here
-
         Button button = new Button
         {
             Text = "A button",
@@ -119,8 +117,27 @@ public class <NewComponent> : ContentView <-- This is the type to derive from
 #### XAML
 ``` XML
 <ContentPage ...
-    xmlns:components <--- name to use basically can be whatever ="clr-namespace:<APPNAME>.Resources.Components.<NewComponents>"> <--- the parent directory of your component
-    <!-- If the property was a color you could add say #000 if it is a string "String Content" -->
-    <components:<NewComponent> <NewProperty>="<NewPropertyType Content>" />
+    xmlns:newcomponents="clr-namespace:<APPNAME>.Resources.Components.<NewComponents>">
+
+    <!--
+    Usage examples:
+         Color property: <NewProperty>="#FF0000"
+         String property: <NewProperty>="Hello World"
+         Number property: <NewProperty>="42"
+    -->
+
+    <newcomponents:<NewComponent> <NewProperty>="<value>" />
+
 </ContentPage>
 ```
+
+The XML namespace `xmlns` for the components ( example: "newcomponents" ) is arbitrary you can name that basically whatever name you want.
+newcomponents, components, buttons ...
+
+The XML namespace is then set to: 
+`xmlns:<componentnamespace>="clr-namespace:<APPNAME>.Resources.Components.<NewComponents>">`.
+
+If your component is at: `<APPNAME>/Resources/Components/<NewComponents>/<NewComponent>.cs`
+Then use namespace: `<APPNAME>.Resources.Components.<NewComponents>`
+
+
