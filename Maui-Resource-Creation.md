@@ -41,8 +41,9 @@ In `Colors.xaml` the color is defined in the project namespace `xmlns:local="clr
 
 ```
 
+### Usage
 
-Which are then accessable in the entire project
+#### Which are then accessable in the entire project
 
 ``` XML
 <TAGNAME ...
@@ -53,7 +54,7 @@ Which are then accessable in the entire project
     ... >
 ```
 
-```
+``` XML
 <Label ...
     Style="{StaticResource newLabelStyle}"
     ... >
