@@ -2,7 +2,7 @@
 
 Quick guide on making components
 
-Replace `<THING>` with your specifics
+Replace the names `<THING-NAME>` with your specifics
 
 This assumes you have a Directory structure simular to `<APPNAME>/Resources/Components`
 
