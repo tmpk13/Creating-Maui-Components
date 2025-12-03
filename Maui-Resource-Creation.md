@@ -9,7 +9,7 @@ This assumes you have a Directory structure simular to `<APPNAME>/Resources/Comp
 ## Style
 
 Project wide styles are defined in `App.xaml` 
-```
+``` XML
 <Application ...
  ...
 <Application.Resources>
@@ -20,7 +20,7 @@ Project wide styles are defined in `App.xaml`
 ```
 
 In `Colors.xaml` the color is defined in the project namespace `xmlns:local="clr-namespace:<APPNAME>"`
-```
+``` XML
 <ResourceDictionary>
     <Color x:Key="Basic-Blue">#0000FF</Color>
 ```
