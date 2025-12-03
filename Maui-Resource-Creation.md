@@ -5,6 +5,18 @@ Quick guide on making components
 Replace the names `<THING-NAME>` with your specifics
 
 This assumes you have a Directory structure simular to `<APPNAME>/Resources/Components`
+```
+<APPNAME>/
+├── Resources/
+│   ├── Components/
+│   │   └── <NewComponents>/
+│   │       ├── <NewComponent>.xaml
+│   │       └── <NewComponent>.xaml.cs
+│   └── Styles/
+│       ├── Colors.xaml
+│       └── Styles.xaml
+└── App.xaml
+```
 
 ## Style
 
