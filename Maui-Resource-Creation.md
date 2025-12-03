@@ -2,6 +2,10 @@
 
 Quick guide on making components
 
+Replace `<THING>` with your specifics
+
+This assumes you have a Directory structure simular to `<APPNAME>/Resources/Components`
+
 ## Style
 
 Project wide styles are defined in `App.xaml` 
@@ -38,14 +42,9 @@ Which are then accessable in the entire project
 
 Add your component to the Application .csproj
 
-If you have a .xaml view component you dont need to link the .xaml.cs attached
-
-
-
-
 #### XAML
 
-For a XAML view located at `<PROJECT-DIR>/Components/<NewComponents>/<NewComponent>.xaml`
+For a XAML view located at `<PROJECT-DIR>/Resources/Components/<NewComponents>/<NewComponent>.xaml`
 
 ``` XML
 <Project ...
@@ -59,17 +58,7 @@ For a XAML view located at `<PROJECT-DIR>/Components/<NewComponents>/<NewCompone
 
 #### C#
 
-For a C# view located at `<PROJECT-DIR>/Components/<NewComponents>/<NewComponent>.cs`
-
-``` XML
-<Project ...
- ...
-    <ItemGroup>
-        <MauiXaml Update="Resources\Components\<NewComponents>\<NewComponent>.cs">
-            <SubType>Designer</SubType>
-        </MauiXaml>
- ...
-```
+C# will automatically be included no need to link
 
 ## Component Code
 
@@ -80,9 +69,14 @@ For a C# view located at `<PROJECT-DIR>/Components/<NewComponents>/<NewComponent
 namespace <APPNAME>.Resources.Components.<NewComponents>;
 public class <NewComponent> : ContentView <-- This is the type to derive from
 {
-    public static readonly BindableProperty NewPropertyName =
-        BindableProperty.Create(nameof(Command), typeof(ICommand), typeof(<NewComponent>));
-    
+    public static readonly BindableProperty <NewPropertyName> =
+        BindableProperty.Create(nameof(<NewProperty>), typeof(<NewPropertyType>), typeof(<NewComponent>));
+
+   public string <NewProperty>
+   {
+       get => (<NewPropertyType>)GetValue(<NewPropertyName>);
+       set => SetValue(<NewPropertyName>, value);
+   }
     ...
 
     public <NewComponent>()
@@ -92,9 +86,8 @@ public class <NewComponent> : ContentView <-- This is the type to derive from
         Button button = new Button
         {
             Text = "A button",
-            BackgroundColor = (Style)Application.Current.Resources[key]
+            BackgroundColor = Application.Current.Resources["Basic-Blue"] as Color ?? Colors.Transparent
         };
-
     }
 
     ...
@@ -116,4 +109,18 @@ public class <NewComponent> : ContentView <-- This is the type to derive from
     ...
     
 </ContentView>
+```
+
+## Usage
+
+#### C#
+
+
+#### XAML
+``` XML
+<ContentPage ...
+    xmlns:components <--- name to use basically can be whatever ="clr-namespace:<APPNAME>.Resources.Components.<NewComponents>"> <--- the parent directory of your component
+    <!-- If the property was a color you could add say #000 if it is a string "String Content" -->
+    <components:<NewComponent> <NewProperty>="<NewPropertyType Content>" />
+</ContentPage>
 ```
