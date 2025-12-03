@@ -20,7 +20,7 @@ Project wide styles are defined in `App.xaml`
  ...
 ```
 
-# Colors
+### Colors
 
 In `Colors.xaml` the color is defined in the project namespace `xmlns:local="clr-namespace:<APPNAME>"`
 ``` XML
@@ -28,7 +28,7 @@ In `Colors.xaml` the color is defined in the project namespace `xmlns:local="clr
     <Color x:Key="Basic-Blue">#0000FF</Color>
 ```
 
-# Styles
+### Styles
 
 In `Colors.xaml` the color is defined in the project namespace `xmlns:local="clr-namespace:<APPNAME>"`
 ``` XML
