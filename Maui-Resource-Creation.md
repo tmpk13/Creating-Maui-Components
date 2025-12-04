@@ -176,4 +176,46 @@ The XML namespace is then set to:
 If your component is at: `<APPNAME>/Resources/Components/<NewComponents>/<NewComponent>.cs`
 Then use namespace: `<APPNAME>.Resources.Components.<NewComponents>`
 
+# Examples
 
+### Navigation service in `<APPNAME>/Resources/Components/Navigation/RouteNavigation.cs`
+
+``` C#
+namespace <APPNAME>.Resources.Components.Navigation;
+public static class OnTapGestureGoToRoute
+{
+    // Route that will be navigated to
+    private static readonly BindableProperty RouteProperty =
+        BindableProperty.CreateAttached(
+            "Route", 
+            typeof(string), 
+            typeof(OnTapGestureGoToRoute),
+            null,
+            propertyChanged: OnRouteChanged);
+    
+    // Public facing function for navigating to the element passed in
+    // Example usage: border.TapToRoute(this, nameof(Route));
+    // Route is the string of the view "<View>" difined in AppShell.xaml.cs
+    // Routing.RegisterRoute(nameof(<View>), typeof(<View>));
+    public static void TapToRoute(this View element, BindableObject source, string propertyName)
+    {
+        element.SetBinding(RouteProperty, new Binding(propertyName, source: source));
+    }
+    
+    private static void OnRouteChanged(BindableObject bindable, object oldValue, object newValue)
+    {
+        if (bindable is not View view) return;
+        
+        view.GestureRecognizers.Clear();
+        
+        if (newValue is string route && !string.IsNullOrEmpty(route))
+        {
+            // Setup and add the Tap Gesture to the passed in element
+            var tapGesture = new TapGestureRecognizer();
+            // When gesture is triggered navigate to page
+            tapGesture.Tapped += async (s, e) => await Shell.Current.GoToAsync(route);
+            view.GestureRecognizers.Add(tapGesture);
+        }
+    }
+}
+```
