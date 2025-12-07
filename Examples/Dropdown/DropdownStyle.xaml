@@ -1,0 +1,29 @@
+<Style x:Key="DropdownButtonText" TargetType="Label">
+    <Setter Property="BackgroundColor" Value="#FFF" />
+    <Setter Property="TextColor" Value="{StaticResource Black}" />
+
+    <Setter Property="HorizontalOptions" Value="Start" />
+    <Setter Property="Padding" Value="25,0" />
+    <Setter Property="Margin" Value="0,0" />
+    <Setter Property="AbsoluteLayout.LayoutBounds" Value="0,0.5" />
+    <Setter Property="AbsoluteLayout.LayoutFlags" Value="PositionProportional" />
+</Style>
+
+<Style x:Key="DropdownButtonCanvas" TargetType="GraphicsView">
+    <!-- <Setter Property="WidthRequest" Value="24" /> -->
+    <!-- <Setter Property="HeightRequest" Value="24" /> -->
+    <!-- <Setter Property="Margin" Value="15,10" /> -->
+    <Setter Property="AbsoluteLayout.LayoutBounds" Value="1,0" />
+    <Setter Property="AbsoluteLayout.LayoutFlags" Value="PositionProportional" />
+</Style>
+
+<Style Class="DropdownButtons" TargetType="Button">
+    <Setter Property="BackgroundColor" Value="White" />
+    <Setter Property="BackgroundColor" Value="White" />
+    <Setter Property="BorderColor" Value="{StaticResource Border-Light-Grey}" />
+    <Setter Property="BorderWidth" Value="0" />
+    <Setter Property="TextColor" Value="{StaticResource BasicBlue}" />
+    <Setter Property="FontSize" Value="12" />
+    <Setter Property="CornerRadius" Value="0" />
+    <Setter Property="Margin" Value="0" />
+</Style>
