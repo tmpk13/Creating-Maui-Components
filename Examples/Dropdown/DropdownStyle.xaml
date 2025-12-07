@@ -10,11 +10,9 @@
 </Style>
 
 <Style x:Key="DropdownButtonCanvas" TargetType="GraphicsView">
-    <!-- <Setter Property="WidthRequest" Value="24" /> -->
-    <!-- <Setter Property="HeightRequest" Value="24" /> -->
-    <!-- <Setter Property="Margin" Value="15,10" /> -->
     <Setter Property="AbsoluteLayout.LayoutBounds" Value="1,0.5" />
     <Setter Property="AbsoluteLayout.LayoutFlags" Value="PositionProportional" />
+    <Setter Property="InputTransparent" Value="true" />
 </Style>
 
 <Style Class="DropdownButtons" TargetType="Button">
